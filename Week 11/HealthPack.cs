@@ -20,13 +20,16 @@ public class HealthPack : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            playerHealth.health += 10;
+            if(playerHealth.health != 100)
+            {
+                playerHealth.health += 10;
             
-            if(playerHealth.health >= 100)
-            { 
-                playerHealth.health = 100;
+                if(playerHealth.health >= 100)
+                { 
+                    playerHealth.health = 100;
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
 
     }
